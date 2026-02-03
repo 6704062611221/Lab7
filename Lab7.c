@@ -1,28 +1,25 @@
 #include<stdio.h>
-void printHead(int w);
-void printBody(int w,int h);
-void main() {
-	int width,height;
-	scanf("%d %d",&width,&height);
-	printHead(width);
-	printBody(width,height);
-	printHead(width);
+long converd(long h,long m,long s);
+void main(){
+	long hour,min,sec;
+	scanf("%ld %ld %ld",&hour,&min,&sec);
+	converd(hour,min,sec);
 }
-void printHead(int w){
+long converd(long h,long m,long s){
+	long sum = 0;
 	int i;
-	for(i = 0 ;i < w;i++){
-		printf("* ");
+	if(h > 0){
+		for(i=1;i<=h;i++){
+			sum += 3600; 
+	    } 
 	}
-	printf("\n");
-}
-void printBody(int w,int h){
-	int i,j;
-	for(i=0;i<h-2;i++){
-		printf("* ");
-		for(j=0;j<w-2;j++){
-			printf("  ");
+	if(m > 0){
+		for(i=1;i<=m;i++){
+			sum += 60;
 		}
-		printf("*\n");
 	}
+	if(s > 0){
+		sum += s;
+	}
+	printf("%ld\n",sum);
 }
-
